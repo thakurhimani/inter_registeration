@@ -1,5 +1,5 @@
 <html>
-	<title>multi page form</title>
+	<title>Personal Details</title>
 	<head>
 		<script src="js_personal_form.js"></script>
 		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
