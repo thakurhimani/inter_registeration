@@ -1,0 +1,113 @@
+#tableid {
+	  margin: 0 auto;
+    border: 1px solid lightgrey;
+}
+#multiple_page_form {
+	text-align: center;
+}
+#form_title {
+	border-bottom: 2px solid #f7efef;
+}
+.form_input {
+	margin-left: 30px;
+  width: 400px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid rgb(224, 217, 217);
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+#fileId {
+  margin-bottom: 10px;
+  padding-left: 30px;
+}
+.td_text_right {
+	text-align: right;
+	font-weight: bold;
+}
+.td_text {
+  padding-left: 30px;
+  padding-bottom: 10px; 
+}
+td#btn_id {
+    text-align: center;
+    padding-right: 85px;
+}
+input#resetId {
+  padding: 8px 60px;
+  background-color: #57bc27;
+  border-radius: 9px;
+  font-size: large;
+  cursor: pointer;
+}
+td.error_Id {
+  color: red;
+}
+.project_text{
+  text-align:center;
+  font-weight: bold
+}
+.project_input {
+  margin-left:25px;
+  width: 180px;
+  height: 26px;
+  border-radius: 5px;
+  border: 1px solid rgb(224, 217, 217);
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+#submitId {
+  padding: 8px 53px;
+  background-color: #57bc27;
+  border-radius: 9px;
+  font-size: large;
+  margin-right: 111px;
+  cursor: pointer;
+}
+.fieldSetId {
+  margin-top: 15px;
+  border: 1px solid lightgrey;
+  font-size: 18px;
+  font-weight: bold;
+}
+.technical_table_id{
+  padding-left: 80px;
+}
+#technical_form_id {
+  margin-left: 19%;
+  margin-right: 15%;
+  border: 1px solid lightgrey;
+}
+#heading_form{
+  text-align: center;
+  border-bottom: 2px solid #f7efef; 
+}
+.formError{
+  color:red;
+  padding-left: 11px;
+}
+table#submitbtn {
+    margin-left: 340px;
+}
+form#academic_form {
+    margin-left: 173px;
+    margin-right: 143px;
+    border: 1px solid lightgrey;
+}
+
+input.project_work {
+    margin-left: 6px;
+    width: 171px;
+    height: 24px;
+    border-radius: 5px;
+    border: 1px solid rgb(224, 217, 217);
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+table#submitbtn_id {
+    margin-left: 41%;
+}
+
+table.academic_table_id {
+    padding-left: 50px;
+}
