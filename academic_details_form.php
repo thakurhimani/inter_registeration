@@ -1,38 +1,37 @@
 <html>
 	<title>form</title>
 	<head>
-		<link href="table_css.css" rel="stylesheet" type="text/css">
+		<link href="stylesheet.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<div class="container">
-			<form id="form_id">
-				<h2 id="heading" > Academic Details</h2> 
-				<fieldset>
+			<form id="academic_form" action="technical_details.php" method="POST">
+				<h2 id="heading_form"> Academic Details</h2> 
+				<fieldset class="fieldSetId">
 					<legend>Academic Details</legend>
-						<table id="table_id">
+						<table class="academic_table_id">
 							<tr>
-								<td class="text_feild">
+								<td class="project_text">
 									<label>Sr.No</label>
 								</td>
-								<td class="text_feild">
+								<td class="project_text">
 									<label>Name Of Degree</label>
 								</td>
-								<td class="text_feild">
+								<td class="project_text">
 									<label>Year Of Passing</label>
 								</td>
-								<td class="text_feild">
+								<td class="project_text">
 									<label>University & College</label>
 								</td>
-								<td class="text_feild">
+								<td class="project_text">
 									<label> Percentage</label>						
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<input type="text" name="" class="project_work">
+									<input type="text" name="" class="project_work" required>
 								</td>
 								<td>
-									<input type="text" name="" class="project_work">
+									<input type="text" name="" class="project_work" required>
 								</td>
 								<td>
 									<input type="text" name="" class="project_work">
@@ -114,23 +113,23 @@
 							</tr>
 						</table>
 				</fieldset>
-				<fieldset>
+				<fieldset class="fieldSetId">
 					<legend>Other Certification </legend>
-						<table>
+						<table class="academic_table_id">
 							<tr>
-								<td class="text_feild">
+								<td class="project_text">
 									<label>Sr.No</label>
 								</td>
-								<td class="text_feild">
+								<td class="project_text">
 									<label>Certification</label>
 								</td>
-								<td class="text_feild">
+								<td class="project_text">
 									<label>Year Of Passing</label>
 								</td>
-								<td class="text_feild">
+								<td class="project_text">
 									<label>Duration</label>
 								</td>
-								<td class="text_feild">
+								<td class="project_text">
 									<label> college</label>
 								</td>
 							</tr>
@@ -221,8 +220,13 @@
 							</tr>
 						</table>
 			</fieldset>
-				<button class="Academic" onclick="my function" click me> <type="button">Next</button>
+						<table id="submitbtn_id">
+							<tr>
+								<td>
+									<input id="submitId" type="submit" value="Next" name="submit" onclick="return validateForm()">
+								</td>
+							</tr>
+						</table>		
 			</form>
-		</div>
 </body>
 </html>

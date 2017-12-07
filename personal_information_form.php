@@ -15,7 +15,8 @@
 				<tr>
 					<td></td>
 					<td>
-						<input type="file" name="profileImage" id="fileId">
+						<input type='file' id="fileId" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" accept="image/*" />
+						<img id="output" src="http://placehold.it/180" alt="your image" width="180" height="180" />
 					</td>
 					<td id="fileError" class="error_Id">*</td>
 				</tr>
@@ -164,7 +165,6 @@
 			</tr>
 			<tr>
 				<td id="btn_Id" colspan="2">
-				<input id="resetId" type="reset" value="Reset">
 				<input id="resetId" type="submit" value="Next" name="submit" onclick="return validateForm()">
 			</td>
 			</tr>
