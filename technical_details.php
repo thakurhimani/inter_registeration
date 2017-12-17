@@ -1,3 +1,9 @@
+<?php 
+session_start();
+for($i = 0 ; $i < count($_SESSION['forminfo']) ; $i++) {
+    echo $_SESSION['forminfo'][$i];
+   }
+?>
 <html>
 	<title>Technical Details</title>
 	<head>
