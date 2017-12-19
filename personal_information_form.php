@@ -30,7 +30,7 @@
 		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
 	</head>                                      
 	<body>
-		<form id="multiple_page_form" action="academic_details_form.php" method="POST" >
+		<form id="multiple_page_form" action="" method="POST" >
 			<table id="tableid">
 				<tr>
 					<th colspan="3">
@@ -40,8 +40,8 @@
 				<tr>
 					<td></td>
 					<td>
-						<input type='file' id="fileId" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" accept="image/*" />
-						<img id="output" src="http://placehold.it/180" alt="your image" width="180" height="180" />
+						<input type='file' id="fileId" name="profileImage" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" accept="image/*" />
+						<img id="output" name="image" src="http://placehold.it/180" alt="your image" width="180" height="180" />
 					</td>
 					<td id="fileError" class="error_Id">*</td>
 				</tr>
@@ -129,7 +129,7 @@
 			<tr>
 				<td></td>
 				<td>
-					<input type="text" class="form_input" name="address" id="stateidId" 
+					<input type="text" class="form_input" name="state" id="stateidId" 
 						placeholder="State" onfocusout="state_func()"></br>
 				</td>
 				<td id="stateError" class="error_Id">*</td>
@@ -137,7 +137,7 @@
 			<tr>
 				<td></td>
 				<td>
-					<input type="text" class="form_input"  name="address" id="pinCodeId" 
+					<input type="text" class="form_input"  name="pinCode" id="pinCodeId" 
 						placeholder="Pin Code" onfocusout="pinCode_func()"></br>
 				</td>
 				<td id="pinCodeError" class="error_Id">*</td>
@@ -175,7 +175,7 @@
 			<tr>
 				<td></td>
 				<td>
-					<input type="text" class="form_input" name="Emergencydata" id="relationshipId" 
+					<input type="text" class="form_input" name="relationship" id="relationshipId" 
 					placeholder="Relatonship" onfocusout="emergencyRelationship_func()"></br>
 				</td>
 				<td id="relationError" class="error_Id">*</td>
@@ -183,7 +183,7 @@
 			<tr>
 				<td></td>
 				<td>
-					<input type="text" class="form_input"  name="Emergencydata" id="emergency_contactno_Id" 
+					<input type="text" class="form_input"  name="contactNo" id="emergency_contactno_Id" 
 						placeholder="Contact No" onfocusout="emergency_contactno_func()"></br>
 				</td>
 				<td id="emergency_contactno_error" class="error_Id">*</td>
@@ -191,7 +191,7 @@
 			<tr>
 				<td id="btn_Id" colspan="2">
 				<input id="resetId" type="submit" value="Next" name="submit" onclick="return validateForm()">
-			</td>
+			</td> 
 			</tr>
 			</table>
 		</form>

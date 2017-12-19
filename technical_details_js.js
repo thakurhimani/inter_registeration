@@ -1,4 +1,4 @@
-function validateForm(){
+function validate_second_Form(){
 //interst area validation
 	var check= document.getElementsByName('intersetArea[]');
 	for (var i=0; i<check.length; i++) {

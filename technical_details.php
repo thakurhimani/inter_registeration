@@ -3,12 +3,15 @@ session_start();
 for($i = 0 ; $i < count($_SESSION['forminfo']) ; $i++) {
     echo $_SESSION['forminfo'][$i];
    }
+for($j = 0; $j < count($_SESSION['second_forminfo']) ;$j++) {
+	echo $_SESSION['second_forminfo'][$j];
+}
 ?>
 <html>
 	<title>Technical Details</title>
 	<head>
 		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
-		<script src="technical_details_js.js"></script>
+		<script src="js_personal_form.js"></script>
 	</head>                                      
 	<body>
 		<form id="technical_form_id" method="POST" action="">
@@ -130,7 +133,7 @@ for($i = 0 ; $i < count($_SESSION['forminfo']) ; $i++) {
 					<table id="submitbtn">
 						<tr>
 							<td>
-								<input id="submitId" type="submit" value="Submit" name="submit" onclick="return validateForm()">
+								<input id="submitId" type="submit" value="Submit" name="submit_third" onclick="return validate_third_Form()">
 							</td>
 						</tr>
 					</table>
