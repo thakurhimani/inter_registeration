@@ -27,7 +27,7 @@ session_start();
 <html>
 	<title>Personal details</title>
 	<head>
-		<!--<script src="js_personal_form.js"></script> !-->
+		<script src="js_personal_form.js"></script>
 		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
 	</head>                                      
 	<body>
