@@ -1,32 +1,7 @@
-<?php
-	session_start();
-	if(isset($_POST['submit'])){
-		$_SESSION['forminfo'] = array();
-		$profileImage=$_POST['profileImage'];
-		$image=$_POST['image'];
-		$firstName= $_POST['firstName'];
-		$lastName= $_POST['lastName'];		
-		$dateOfBirth=$_POST['dateOfBirth'];
-		$fatherName=$_POST['fatherName'];
-		$motherName=$_POST['motherName'];
-		$gender=$_POST['gender'];
-		$maritalStatus=$_POST['maritalStatus'];
-		$address=$_POST['address'];
-		$state=$_POST['state'];
-		$pinCode=$_POST['pinCode'];
-		$contactno=$_POST['contactno'];
-		$emailId=$_POST['emailId'];	
-		$Emergencydata=$_POST['Emergencydata'];	
-		$relationship=$_POST['relationship'];	 
-		$contactNo=$_POST['contactNo'];
-		array_push($_SESSION['forminfo'],$profileImage,$image,$firstName,$lastName,$dateOfBirth,$fatherName,$motherName,
-			$gender,$maritalStatus,$address,$state,$pinCode,$contactno,$emailId,$Emergencydata,$relationship,$contactNo);
-	}
-?>
 <html>
 	<title>Personal details</title>
 	<head>
-		<script src="js_personal_form.js"></script>
+		<script src="js_personal_form.js"></script> 
 		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
 	</head>                                      
 	<body>
@@ -111,8 +86,8 @@
 				</td>
 				<td class="td_text">
 					<input type="radio" name="maritalStatus" id="marriedId" value="Married">Married	
-					<input type="radio" name="maritalStatus" id="singleId" value="Single">Single
-					<input type="radio" name="maritalStatus" id="anyotherId" value="anyother">Any Other
+					<input type="radio" name="maritalStatus" id="singleId" value="Unmarried">Unmarried
+				
 				</td>
 				<td id="maritalStatusError" class="error_Id">*</td>
 			</tr>
@@ -190,10 +165,35 @@
 			</tr>
 			<tr>
 				<td id="btn_Id" colspan="2">
-				<input id="resetId" type="submit" value="Next" name="submit" onclick="return validateForm()">
+				<input id="resetId" type="submit" value="Next" name="submitFirstForm" onclick="return validateForm()">
 			</td> 
 			</tr>
 			</table>
 		</form>
 	</body>
 </html>
+<?php
+	if(isset($_POST['submitFirstForm'])){
+		$_SESSION['forminfo'] = array();
+		$profileImage=$_POST['profileImage'];
+		$firstName= $_POST['firstName'];
+		$lastName= $_POST['lastName'];		
+		$dateOfBirth=$_POST['dateOfBirth'];
+		$fatherName=$_POST['fatherName'];
+		$motherName=$_POST['motherName'];
+		$gender=$_POST['gender'];
+		$maritalStatus=$_POST['maritalStatus'];
+		$address=$_POST['address'];
+		$state=$_POST['state'];
+		$pinCode=$_POST['pinCode'];
+		$contactno=$_POST['contactno'];
+		$emailId=$_POST['emailId'];	
+		$Emergencydata=$_POST['Emergencydata'];	
+		$relationship=$_POST['relationship'];	 
+		$contactNo=$_POST['contactNo'];
+		array_push($_SESSION['forminfo'],$profileImage,$image,$firstName,$lastName,$dateOfBirth,$fatherName,$motherName,
+			$gender,$maritalStatus,$address,$state,$pinCode,$contactno,$emailId,$Emergencydata,$relationship,$contactNo);
+	
+		header("Location:academic_details_form.php");
+	} 
+?>

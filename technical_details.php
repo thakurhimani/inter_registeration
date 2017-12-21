@@ -1,12 +1,3 @@
-<?php 
-session_start();
-for($i = 0 ; $i < count($_SESSION['forminfo']) ; $i++) {
-    echo $_SESSION['forminfo'][$i];
-   }
-for($j = 0; $j < count($_SESSION['second_forminfo']) ;$j++) {
-	echo $_SESSION['second_forminfo'][$j];
-}
-?>
 <html>
 	<title>Technical Details</title>
 	<head>
@@ -14,7 +5,7 @@ for($j = 0; $j < count($_SESSION['second_forminfo']) ;$j++) {
 		<script src="js_personal_form.js"></script>
 	</head>                                      
 	<body>
-		<form id="technical_form_id" method="POST" action="">
+		<form id="technical_form_id" method="POST" action="email_form.php">
 			<h2 id="heading_form">Technical Details</h2>
 				<fieldset class="fieldSetId">
 					<legend>Interest Area</legend>
@@ -102,30 +93,30 @@ for($j = 0; $j < count($_SESSION['second_forminfo']) ;$j++) {
 								</tr>
 								<tr>
 									<td >
-										<input type="text" name="srNO" class="project_input" >
+										<input type="text" name="srNO_1" class="project_input" >
 									</td>
 									<td>
-										<input type="text" name="projectName" class="project_input" >
+										<input type="text" name="projectName_1" class="project_input" >
 									</td>
 									<td>
-										<input type="text" name="technology" class="project_input" >
+										<input type="text" name="technology_1" class="project_input" >
 									</td>
 									<td>
-										<textarea rows="4" cols="50" name="message" id="textarea"  class="project_input" ></textarea>
+										<textarea rows="4" cols="50" name="message_1" id="textarea"  class="project_input" ></textarea>
 									</td>
 								</tr>
 								<tr>
 									<td >
-										<input type="text" name="srNO" class="project_input" >
+										<input type="text" name="srNO_2" class="project_input" >
 									</td>
 									<td>
-										<input type="text" name="projectName" class="project_input" >
+										<input type="text" name="projectName_2" class="project_input" >
 									</td>
 									<td>
-										<input type="text" name="technology" class="project_input" >
+										<input type="text" name="technology_2" class="project_input" >
 									</td>
 									<td>
-										<textarea rows="4" cols="50" name="message" id="textarea"  class="project_input"  ></textarea>
+										<textarea rows="4" cols="50" name="message_2" id="textarea"  class="project_input"  ></textarea>
 									</td>
 								</tr>
 							</table>
@@ -140,3 +131,20 @@ for($j = 0; $j < count($_SESSION['second_forminfo']) ;$j++) {
 		</form>
 	</body>
 </html>
+<?php
+	session_start();
+	if(isset($_POST['submit_third'])){
+		$_SESSION['third_forminfo'] = array();
+		$intersetArea = $_POST['intersetArea'];
+		$Language = $_POST['Language'];
+		$CMSKnowledge = $_POST['CMSKnowledge'];
+		$srNO = $_POST['srNO'];
+		$projectName = $_POST['projectName'];
+		$technology = $_POST['technology'];
+		$message = $_POST['message'];
+		array_push($_SESSION['third_forminfo'],$intersetArea,$Language,$CMSKnowledge,$srNO,$projectName,
+		$technology,$message);
+		header("Location:email_form.php");
+	}
+	
+?>
