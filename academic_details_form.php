@@ -1,3 +1,35 @@
+<?php
+session_start();
+if(isset($_POST['submit_second'])){
+	$_SESSION['second_forminfo'] = array();
+	$srNoField = $_POST['srNoField'];
+	$nameOfDegree = $_POST['nameOfDegree'];
+	$yearOfPassing = $_POST['yearOfPassing'];
+	$University = $_POST['University'];
+	$Percentage = $_POST['Percentage'];
+	$srNoField_2 = $_POST['srNoField_2'];
+	$nameOfDegree_2 = $_POST['nameOfDegree_2'];
+	$yearOfPassing_2 = $_POST['yearOfPassing_2'];
+	$University_2 = $_POST['University_2'];
+	$Percentage_2 = $_POST['Percentage_2'];
+	$SrNo = $_POST['SrNo'];
+	$Certification = $_POST['Certification'];
+	$Passing = $_POST['Passing'];
+	$Duration = $_POST['Duration'];
+	$college = $_POST['college'];
+	$SrNo_1 = $_POST['SrNo_1'];
+	$Certification_1 = $_POST['Certification_1'];
+	$Passing_1 = $_POST['Passing_1'];
+	$Duration_1 = $_POST['Duration_1'];
+	$college_1 = $_POST['college_1'];
+	array_push($_SESSION['second_forminfo'],$srNoField ,$nameOfDegree,$yearOfPassing,$University,$Percentage,$srNoField_2,
+		$nameOfDegree_2,$yearOfPassing_2,$University_2,$Percentage_2,$SrNo,$Certification,$Passing ,$Duration,$college,$SrNo_1,
+		$Certification_1,$Passing_1,$Duration_1,$college_1);
+		
+		header("Location:technical_details.php");
+	}
+	
+?>
 <html>
 	<title>form</title>
 	<head>
@@ -5,7 +37,7 @@
 		<link href="stylesheet.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-			<form id="academic_form" action="technical_details.php" method="POST">
+			<form id="academic_form" action="" method="POST">
 				<h2 id="heading_form"> Academic Details</h2> 
 				<fieldset class="fieldSetId">
 					<legend>Academic Details</legend>
@@ -236,34 +268,3 @@
 			</form>
 </body>
 </html>
-<?php
-session_start();
-if(isset($_POST['submit_second'])){
-	$_SESSION['second_forminfo'] = array();
-	$srNoField = $_POST['srNoField'];
-	$nameOfDegree = $_POST['nameOfDegree'];
-	$yearOfPassing = $_POST['yearOfPassing'];
-	$University = $_POST['University'];
-	$Percentage = $_POST['Percentage'];
-	$srNoField_2 = $_POST['srNoField_2'];
-	$nameOfDegree_2 = $_POST['nameOfDegree_2'];
-	$yearOfPassing_2 = $_POST['yearOfPassing_2'];
-	$University_2 = $_POST['University_2'];
-	$Percentage_2 = $_POST['Percentage_2'];
-	$SrNo = $_POST['SrNo'];
-	$Certification = $_POST['Certification'];
-	$Passing = $_POST['Passing'];
-	$Duration = $_POST['Duration'];
-	$college = $_POST['college'];
-	$SrNo_1 = $_POST['SrNo_1'];
-	$Certification_1 = $_POST['Certification_1'];
-	$Passing_1 = $_POST['Passing_1'];
-	$Duration_1 = $_POST['Duration_1'];
-	$college_1 = $_POST['college_1'];
-	array_push($_SESSION['second_forminfo'],$srNoField ,$nameOfDegree,$yearOfPassing,$University,$Percentage,$srNoField_2,
-		$nameOfDegree_2,$yearOfPassing_2,$University_2,$Percentage_2,$SrNo,$Certification,$Passing ,$Duration,$college,$SrNo_1,
-		$Certification_1,$Passing_1,$Duration_1,$college_1);
-		header("Location:technical_details.php");
-	}
-	
-?>

@@ -1,3 +1,21 @@
+<?php
+	session_start();
+	if(isset($_POST['submit_third'])){
+		$_SESSION['third_forminfo'] = array();
+		$intersetArea = $_POST['intersetArea'];
+		$Language = $_POST['Language'];
+		$CMSKnowledge = $_POST['CMSKnowledge'];
+		$srNO = $_POST['srNO'];
+		$projectName = $_POST['projectName'];
+		$technology = $_POST['technology'];
+		$message = $_POST['message'];
+		array_push($_SESSION['third_forminfo'],$intersetArea,$Language,$CMSKnowledge,$srNO,$projectName,
+		$technology,$message);
+		
+		header("Location:email_form.php");
+	}
+	
+?>
 <html>
 	<title>Technical Details</title>
 	<head>
@@ -5,7 +23,7 @@
 		<script src="js_personal_form.js"></script>
 	</head>                                      
 	<body>
-		<form id="technical_form_id" method="POST" action="email_form.php">
+		<form id="technical_form_id" method="POST" action="">
 			<h2 id="heading_form">Technical Details</h2>
 				<fieldset class="fieldSetId">
 					<legend>Interest Area</legend>
@@ -131,20 +149,4 @@
 		</form>
 	</body>
 </html>
-<?php
-	session_start();
-	if(isset($_POST['submit_third'])){
-		$_SESSION['third_forminfo'] = array();
-		$intersetArea = $_POST['intersetArea'];
-		$Language = $_POST['Language'];
-		$CMSKnowledge = $_POST['CMSKnowledge'];
-		$srNO = $_POST['srNO'];
-		$projectName = $_POST['projectName'];
-		$technology = $_POST['technology'];
-		$message = $_POST['message'];
-		array_push($_SESSION['third_forminfo'],$intersetArea,$Language,$CMSKnowledge,$srNO,$projectName,
-		$technology,$message);
-		header("Location:email_form.php");
-	}
-	
-?>
+
