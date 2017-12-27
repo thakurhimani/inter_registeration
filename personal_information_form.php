@@ -55,7 +55,7 @@ session_start();
 							class="form_input"/> </br>
 					</td>
 					<td id="firstNameError" class="error_Id">*</td>
-					</tr>
+				</tr>
 				<tr>
 					<td class="td_text_right">
 						<label>Last Name</label>
@@ -72,7 +72,7 @@ session_start();
 					</td>
 					<td>
 						<input type="text" class="form_input" name="dateOfBirth" id="dateOfBirthId" 
-							placeholder="Date Of Birth" onfocusout="dob_func()" />
+							placeholder="01/01/2000" onfocusout="dob_func()" />
 					</td>
 					<td id="dateOfBithError" class="error_Id">*</td>
 				</tr>
@@ -113,7 +113,6 @@ session_start();
 				<td class="td_text">
 					<input type="radio" name="maritalStatus" id="marriedId" value="Married">Married	
 					<input type="radio" name="maritalStatus" id="singleId" value="Unmarried">Unmarried
-				
 				</td>
 				<td id="maritalStatusError" class="error_Id">*</td>
 			</tr>

@@ -64,10 +64,10 @@ if(isset($_POST['submit_second'])){
 									<input type="text" name="srNoField" id="srNo_Field" class="project_work" onfocusout="srNo()">
 								</td>
 								<td>
-									<input type="text" name="nameOfDegree" id="nameOFDegree" class="project_work">
+									<input type="text" name="nameOfDegree" id="nameOFDegree" class="project_work" onfocusout="nameOFDegree()">
 								</td>
 								<td>
-									<input type="text" name="yearOfPassing" id="yearOfPasing" class="project_work">
+									<input type="text" name="yearOfPassing" id="yearOfPasing" class="project_work" onfocusout="yearofpassing()">
 								</td>
 								<td>
 									<input type="text" name="University" id="university" class="project_work">
@@ -148,7 +148,9 @@ if(isset($_POST['submit_second'])){
 				</fieldset>
 				<table>
 					<tr>
-						<td id="error_table">*</td>
+						<td id="error_srno">*</td>
+						<td id="error_nameOfDegree">*</td>
+						<td id="error_yearofpassing">*</td>
 					</tr>
 				</table>
 				<fieldset class="fieldSetId">

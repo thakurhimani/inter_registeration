@@ -1,15 +1,5 @@
 <?php 
 session_start();
-/*for($i = 0 ; $i < count($_SESSION['forminfo']) ; $i++) {
-    echo $_SESSION['forminfo'][$i];
-   }
-for($j = 0; $j < count($_SESSION['second_forminfo']) ;$j++) {
-	echo $_SESSION['second_forminfo'][$j];
-}
-
-for($x = 0; $x < count($_SESSION['third_forminfo']) ;$x++){
-	echo $_SESSION['third_forminfo'][$x];
-}*/
 	$profileimage = $_SESSION['forminfo'][0];
 	$firstname =  $_SESSION['forminfo'][1];
 	$lastname =  $_SESSION['forminfo'][2];
@@ -47,66 +37,370 @@ for($x = 0; $x < count($_SESSION['third_forminfo']) ;$x++){
 	$Duration_1 = $_SESSION['second_forminfo'][18];
 	$college_1 = $_SESSION['second_forminfo'][19];
 	$intersetArea = $_SESSION['third_forminfo'][0];
+
+	foreach ($intersetArea as $key => $value) {
+	}
+
 	$Language = $_SESSION['third_forminfo'][1];
+	foreach ($Language as $key => $languageValue) {
+	}
 	$CMSKnowledge = $_SESSION['third_forminfo'][2];
+	foreach ($CMSKnowledge as $key => $CMSKnowledgeValue) {
+	}
 	$srNO = $_SESSION['third_forminfo'][3];
 	$projectName = $_SESSION['third_forminfo'][4];
 	$technology = $_SESSION['third_forminfo'][5];
-	$message = $_SESSION['third_forminfo'][6];
+	$roleInProject = $_SESSION['third_forminfo'][6];
+	$email_to = '';
+	$email_subject = 'Intern resisgration';
+	$email_body = '
+	<html>
+		<title>Intern resisgration</title>
+		<head>
+		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
+		</head>
+			<body>
+		     	<form id="multiple_page_form" >
+		     		<table id="tableid">
+		     			<tr>
+		     				<th colspan="3">
+							<h2 id="form_title">Personal Information</h2>
+							</th>
+		     			</tr>
+		     			<tr>
+							<td></td>
+							<td>
+								<img src = "'.$profileimage.'"  alt="your image" width="180" height="180" style= "margin-left:56%" />
+							</td>
+						</tr>
+		     			<tr>
+							<td class="td_text_right">
+								<label>First Name </label>
+							</td> 
+							<td>
+								<input type="text" name="firstname" class="form_input" disabled value= "'.$firstname.'"/> </br>
+							</td>
+						</tr>
+						<tr>
+							<td  class="td_text_right">
+								<label>Last Name</label>
+							</td>
+							<td>
+								<input type="text" name="" class="form_input" disabled value="'.$lastname.'"/>
+							</td>
+						</tr>
+						<tr>
+							<td  class="td_text_right">
+								<label>Date Of Birth</label>
+							</td>
+							<td>
+								<input type="txet" name="" class="form_input" disabled value="'. $dateofbirth.'"/>
+							</td>
+						</tr>
+						<tr>
+							<td  class="td_text_right">
+								<label>Father Name</label>
+							</td>
+							<td>
+								<input type="text" name="" class="form_input" disabled value="'. $fathername.'"/>
+							</td>
+						</tr>
+						<tr>
+							<td  class="td_text_right">
+								<label>Mother name</label>
+							</td>
+							<td>
+								<input type="text" name="" class="form_input" disabled value="'. $mothername.'"/>
+							</td>
+						</tr>
+						<tr>
+							<td  class="td_text_right">
+								<label>Gender</label>
+							</td>
+							<td class="td_text">
+								<input type="radio" name="gender" id="maleid" value="Male" disabled  > Male	
+								<input type="radio" name="gender" id="femaleid" value="Female" disabled  >Female
+							</td>
+						</tr>
+						<tr>
+							<td  class="td_text_right">
+								<label>Marital Status</label>
+							</td>
+							<td class="td_text">
+								<input type="radio" name="maritalStatus" id="marriedId" value="'.$maritalstatus.'" disabled>Married	
+								<input type="radio" name="maritalStatus" id="singleId" value="'. $maritalstatus.'" disabled>Unmarried
+							</td>
+						</tr>
+						<tr>
+							<td  class="td_text_right">
+								<label>Complete Address</label>
+							</td>
+							<td>
+								<input type="text" name="address" class="form_input" disabled value="'.$address.'"></br>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<input type="text" name="state" class="form_input" disabled value="'. $state.'"></br>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<input type="text" class="form_input"  name="pinCode" disabled  value="'.$pincode.'"></br>
+							</td>
+						</tr>
+						<tr>
+							<td  class="td_text_right">
+								<label>Contact No</label>
+							</td>
+						<td>
+							<input type="text" class="form_input" name="contactno" disabled value="'.$contactno.'"/>
+						</td>
+						</tr>	
+						<tr>
+							<td  class="td_text_right">
+								<label>Email Id</label>
+							</td>
+							<td>
+								<input type="text" class="form_input" name="emailId" disabled value="'.$emailid.'">
+							</td>
+						</tr>	
+						<tr>
+							<td class="td_text_right">
+								<label>In case of Emergency </label>
+							</td>
+							<td>
+								<input type="text" class="form_input" name=" Emergencydata" disabled value="'.$emergencydata.'"/></br>
+							</td>	
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<input type="text" class="form_input" name="relationship" disabled value="'. $Relationship.'"></br>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<input type="text" class="form_input"  name="contactNo" disabled value="'. $ContactNo.'"></br>
+							</td>
+						</tr>
+		     		</table>
+		     	</form>
+		     	<form id="academic_form" >
+				<h2 id="heading_form"> Academic Details</h2> 
+				<fieldset class="fieldSetId">
+					<legend>Academic Details</legend>
+						<table class="academic_table_id">
+							<tr>
+								<td class="project_text">
+									<label>Sr.No</label>
+								</td>
+								<td class="project_text">
+									<label>Name Of Degree</label>
+								</td>
+								<td class="project_text">
+									<label>Year Of Passing</label>
+								</td>
+								<td class="project_text">
+									<label>University & College</label>
+								</td>
+								<td class="project_text">
+									<label> Percentage</label>						
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="text" name="srNoField" id="srNo_Field" class="project_work" disabled value="'. $srno .'" >
+								</td>
+								<td>
+									<input type="text" name="nameOfDegree" id="nameOFDegree" class="project_work" disabled value="'. $nameOfDegree .'" >
+								</td>
+								<td>
+									<input type="text" name="yearOfPassing" id="yearOfPasing" class="project_work" disabled value="'. $yearOfPassing .'">
+								</td>
+								<td>
+									<input type="text" name="University" id="university" class="project_work" disabled value="'. $University .'">
+								</td>
+								<td>
+									<input type="text" name="Percentage" id="percentage" class="project_work" disabled value="'. $Percentage .'">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="text" name="srNoField_2" id ="srNoField_2" class="project_work" disabled value="'. $srNoField_2 .'">
+								</td>
+								<td>
+									<input type="text" name="nameOfDegree_2" id="nameOfDegree_2" class="project_work" disabled value="'. $nameOfDegree_2 .'">
+								</td>
+								<td>
+									<input type="text" name="yearOfPassing_2" id="yearOfPassing_2" class="project_work" disabled value="'. $yearOfPassing_2 .'">
+								</td>
+								<td>
+									<input type="text" name="University_2" id="University_2" class="project_work" disabled value="'. $University_2 .'">
+								</td>
+								<td>
+									<input type="text" name="Percentage_2" id="Percentage_2" class="project_work" disabled value="'. $Percentage .'">
+								</td>
+							</tr>
+						</table>
+				</fieldset>
+				<fieldset class="fieldSetId">
+					<legend>Other Certification </legend>
+						<table class="academic_table_id">
+							<tr>
+								<td class="project_text">
+									<label>Sr.No</label>
+								</td>
+								<td class="project_text">
+									<label>Certification</label>
+								</td>
+								<td class="project_text">
+									<label>Year Of Passing</label>
+								</td>
+								<td class="project_text">
+									<label>Duration</label>
+								</td>
+								<td class="project_text">
+									<label> college</label>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="text" name="SrNo" id="SrNo" class="project_work" disabled value="'. $SrNo .'">
+								</td>
+								<td>
+									<input type="text" name="Certification" id="Certification" class="project_work" disabled value="'. $Certification .'">
+								</td>
+								<td>
+									<input type="text" name="Passing" id="Passing" class="project_work" disabled value="'. $Passing .'">
+								</td>
+								<td>
+									<input type="text" name="Duration" id="Duration" class="project_work" disabled value="'. $Duration .'">
+								</td>
+								<td>
+									<input type="text" name="college" id="college" class="project_work" disabled value="'. $college .'">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="text" name="SrNo_1" id="SrNo_1" class="project_work" disabled value="'. $SrNo_1.'">
+								</td>
+								<td>
+									<input type="text" name="Certification_1" id="Certification_1" class="project_work" disabled value="'. $Certification_1 .'">
+								</td>
+								<td>
+									<input type="text" name="Passing_1" id="Passing_1" class="project_work" disabled value="'. $Passing_1 .'">
+								</td>
+								<td>
+									<input type="text" name="Duration_1" id="Duration_1" class="project_work" disabled value="'.$Duration_1 .'">
+								</td>
+								<td>
+									<input type="text" name="college_1" id="college_1" class="project_work" disabled value="'.$college_1 .'">
+								</td>
+							</tr>
+						</table>
+			</fieldset>	
+			</form>
+			<form id="technical_form_id" method="POST" action="">
+			<h2 id="heading_form">Technical Details</h2>
+				<fieldset class="fieldSetId">
+					<legend>Interest Area</legend>
+						<table class="technical_table_id">
+							<tr>
+								<td>
+									<input type="checkbox" name="intersetArea[]" value="deve"
+									id="development_id" disabled >Development
+									<input type="checkbox" name="intersetArea[]" value="" 
+									id="theming_id" disabled>Theming	</br>	
+									<input type="checkbox" name="intersetArea[]" value="" 
+									id="networking_id" disabled>Networking
+									<input type="checkbox" name="intersetArea[]" value=""
+									id="system_id" disabled>system
+								</td>
+							</tr>
+						</table>
+					</fieldset>
+					<fieldset class="fieldSetId">
+						<legend>Language Proficiency</legend>
+							<table class="technical_table_id">
+								<tr>
+									<td>
+										<input type="checkbox" name="Language[]" value="" id="language_c_id" disabled>C
+										<input type="checkbox" name="Language[]" value="" 
+											id="language_id" disabled>C++
+										<input type="checkbox" name="Language[]" value="" 
+											id"javascript_id" disabled>Javascript </br>
+										<input type="checkbox" name="Language[]" value="" id="php_id" disabled>php
+										<input type="checkbox" name="Language[]" value="" 
+											id="html_id" disabled>HTML
+										<input type="checkbox" name="Language[]" value="" id="css_id" disabled>CSS
+										</td>
+								</tr>
+							</table>
+					</fieldset>
+					<fieldset class="fieldSetId">
+						<legend>CMS Knowledge</legend>
+							<table class="technical_table_id">
+								<tr>
+									<td>
+										<input type="checkbox" name="CMSKnowledge[]" value="<?php print_r($CMSKnowledgeValue);?>" 
+										id="drupal_id" disabled>Drupal
+										<input type="checkbox" name="CMSKnowledge[]" value="<?php print_r($CMSKnowledgeValue);?>" 
+										id="wordpress_id" disabled>Wordpress </br>
+										<input type="checkbox" name="CMSKnowledge[]" value="<?php print_r($CMSKnowledgeValue);?>" id="none_id" disabled>None
+									</td>
+								</tr>
+							</table>
+					</fieldset>
+					<fieldset class="fieldSetId">
+						<legend>Projects</legend>
+							<table>
+								<tr>
+									<td class="project_text">
+										<label>Sr No.</label>
+									</td>
+									<td class="project_text">
+										<label>Project Name</label>
+									</td>
+									<td class="project_text">
+										<label>Technology</label> 
+									</td>
+									<td class="project_text">
+										<label>Role In Project</label>
+									</td>
+								</tr>
+								<tr>
+									<td >
+										<input type="text" name="srNO" class="project_input" disabled value="'. $srNO .'">
+									</td>
+									<td>
+										<input type="text" name="projectName" class="project_input" disabled value="'. $projectName .'">
+									</td>
+									<td>
+										<input type="text" name="technology" class="project_input" disabled value="'. $technology .'">
+									</td>
+									<td>
+										<textarea rows="4" cols="50" name="message" id="textarea"  class="project_input" disabled  value="" placeholder= "'.$roleInProject.'"></textarea>
+									</td>
+								</tr>
+							</table>
+					</fieldset>
+				</form>
+			</body>
+	</html>';
+	print_r($email_body);die;
+		$mail_status = mail($email_to ,$email_subject,$email_body);
+/*	if($mail_status){
+		echo  'mail has been sent successfully.';
+		header('Location:personal_information_form.php)');
+	}else {
+		 echo 'Unable to send email.';
+		 header('Location:personal_information_form.php)');
+	}
+*/
+?> 
 
-?>
-
-<html>
-	<head></head>
-	<body>
-		<h2>Email form</h2>
-			<h4>First Form</h4>
-				<h4>Profileimage :</h4> <h5><?php echo $profileimage;?></h5>
-				<h4>First Name :</h4> <h5><?php echo $firstname;?></h5>
-				<h4>Last Name :</h4> <h5><?php echo $lastname;?></h5>
-				<h4>Date of Birth:</h4> <h5><?php echo $dateofbirth;?></h5>
-				<h4>Father Name:</h4> <h5><?php echo $fathername;?></h5>
-				<h4>Mother Name:</h4> <h5><?php echo $mothername;?></h5>
-				<h4>Gender :</h4> <h5><?php echo $gender;?></h5>
-				<h4>Marital Status:</h4> <h5><?php echo $maritalstatus;?></h5>
-				<h4>Address :</h4> <h5><?php echo $address;?></h5>
-				<h4>State :</h4> <h5><?php echo $state;?></h5>
-				<h4>>Pincode :</h4> <h5><?php echo $pincode;?></h5>
-				<h4>Contact No :</h4> <h5><?php echo $contactno;?></h5>
-				<h4>Email Id  :</h4> <h5><?php echo $emailid;?></h5>
-				<h4>Emergency data :</h4> <h5><?php echo $emergencydata;?></h5>
-				<h4>Relationship:</h4> <h5><?php echo $Relationship;?></h5>
-				<h4>Contact no :</h4> <h5><?php echo $ContactNo;?></h5>
-
-			<h4>Second Form</h4>
-				<h4>Sr No </h4> <h5><?php echo $srno;?></h5>
-				<h4>Name Of Degree :</h4> <h5><?php echo $nameOfDegree;?></h5> 
-				<h4>Year Of Passing :</h4> <h5><?php echo $yearOfPassing;?></h5>
-				<h4>University :</h4> <h5><?php echo $University;?></h5>
-				<h4>Percentage :</h4> <h5><?php echo $Percentage;?></h5>
-				<h4>Sr :</h4> <h5><?php echo $srNoField_2;?></h5>
-				<h4>Name Of Degree :</h4> <h5><?php echo $nameOfDegree_2;?></h5>
-				<h4>Year Of Passing  :</h4> <h5><?php echo $yearOfPassing_2;?></h5>
-				<h4>University :</h4> <h5><?php echo $University_2;?></h5>
-				<h4>Percentage :</h4> <h5><?php echo $Percentage_2;?></h5>
-				<h4>SrNo :</h4> <h5><?php echo $SrNo;?></h5>
-				<h4>Certification :</h4> <h5><?php echo $Certification;?></h5>
-				<h4>Passing :</h4> <h5><?php echo $Passing;?></h5>
-				<h4>Duration :</h4> <h5><?php echo $Duration;?></h5>
-				<h4>college :</h4> <h5><?php echo $college;?></h5>
-				<h4>SrNo_1 :</h4> <h5><?php echo $SrNo_1;?></h5>
-				<h4>Certification_1 :</h4> <h5><?php echo $Certification_1;?></h5>
-				<h4>Passing_1 :</h4> <h5><?php echo $Passing_1;?></h5>
-				<h4>Duration_1 :</h4> <h5><?php echo $Duration_1;?></h5>
-				<h4>college_1 :</h4> <h5><?php echo $college_1;?></h5>
-
-			<h4>Third Form</h4>
-				<h4>IntersetArea</h4> <h5><?php echo $intersetArea;?></h5>
-				<h4>Language Proficiency</h4> <h5><?php echo $Language;?></h5>
-				<h4>CMS Knowledge</h4> <h5><?php echo $CMSKnowledge;?></h5>
-				<h4>SrNO</h4> <h5><?php echo $srNO;?></h5>
-				<h4>ProjectName</h4> <h5><?php echo $projectName;?></h5>
-				<h4>Technology</h4> <h5><?php echo $technology;?></h5>
-				<h4>Role In Project</h4> <h5><?php echo $message;?></h5>
-	</body>
-</html>
+	

@@ -354,15 +354,35 @@ function validate_third_Form(){
 		return true;
 	}
 }
-/*
-function srNo(){
+
+function srNo() {
 	var srNoField = document.getElementById('srNo_Field').value;
-	}if(!"/^[^0-9]/".test(srNoField)){
-		document .getElementById('error_table').innerHTML = "Please enter digit no ";
+	if(!/^[0-9]+$/..test(srNoField)){
+		document .getElementById('error_srno').innerHTML = "Please enter digit no ";
 		return false;
 	}else{
-		document.getElementById('error_table').innerHTML = "";
-		return true;
+		document.getElementById('error_srno').innerHTML = "";
 	}
-}*/
+}
  
+ function nameofdegree() {
+ 	var nameofdegree = document.getElementById('nameOFDegree').value;
+ 	if(!/^[a-zA-Z]+$/.test(nameofdegree)){
+ 		document.getElementById('error_nameOfDegree').innerHTML = "Please enter the value of degree ";
+ 		return false;
+ 	}else{
+ 		document.getElementById('error_nameOfDegree').innerHTML = "";
+ 		return true;
+ 	}
+ }
+
+ function yearofpassing() {
+ 	var yearofpassing = document.getElementById('yearOfPasing').value;
+ 	if(!/^[0-9]+$/.test(yearofpassing)){
+ 		document.getElementById('error_yearofpassing').innerHTML = "Please enter the value of year of pasing";
+ 		return false;
+ 	}else{
+ 		document.getElementById('error_yearofpassing').innerHTML = "";
+ 		return true;
+ 	}
+ }
