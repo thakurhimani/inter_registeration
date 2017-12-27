@@ -391,7 +391,7 @@ session_start();
 				</form>
 			</body>
 	</html>';
-	print_r($email_body);die;
+	//print_r($email_body);die;
 		$mail_status = mail($email_to ,$email_subject,$email_body);
 /*	if($mail_status){
 		echo  'mail has been sent successfully.';
