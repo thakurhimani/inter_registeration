@@ -1,11 +1,37 @@
+<?php
+session_start();
+	if(isset($_POST['submitFirstForm'])){
+		$_SESSION['forminfo'] = array();
+		$profileImage=$_POST['profileImage'];
+		$firstName= $_POST['firstName'];
+		$lastName= $_POST['lastName'];		
+		$dateOfBirth=$_POST['dateOfBirth'];
+		$fatherName=$_POST['fatherName'];
+		$motherName=$_POST['motherName'];
+		$gender=$_POST['gender'];
+		$maritalStatus=$_POST['maritalStatus'];
+		$address=$_POST['address'];
+		$state=$_POST['state'];
+		$pinCode=$_POST['pinCode'];
+		$contactno=$_POST['contactno'];
+		$emailId=$_POST['emailId'];	
+		$Emergencydata=$_POST['Emergencydata'];	
+		$relationship=$_POST['relationship'];	 
+		$contactNo=$_POST['contactNo'];
+		array_push($_SESSION['forminfo'],$profileImage,$firstName,$lastName,$dateOfBirth,$fatherName,$motherName,
+			$gender,$maritalStatus,$address,$state,$pinCode,$contactno,$emailId,$Emergencydata,$relationship,$contactNo);
+	
+		header("Location:academic_details_form.php");
+	} 
+?>
 <html>
-	<title>Personal Details</title>
+	<title>Personal details</title>
 	<head>
 		<script src="js_personal_form.js"></script>
 		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
 	</head>                                      
 	<body>
-		<form id="multiple_page_form" action="academic_details_form.php" method="POST" >
+		<form id="multiple_page_form" action="" method="POST" >
 			<table id="tableid">
 				<tr>
 					<th colspan="3">
@@ -15,8 +41,8 @@
 				<tr>
 					<td></td>
 					<td>
-						<input type='file' id="fileId" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" accept="image/*" />
-						<img id="output" src="http://placehold.it/180" alt="your image" width="180" height="180" />
+						<input type='file' id="fileId" name="profileImage" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" accept="image/*" />
+						<img id="output" name="image" src="http://placehold.it/180" alt="your image" width="180" height="180" />
 					</td>
 					<td id="fileError" class="error_Id">*</td>
 				</tr>
@@ -29,7 +55,7 @@
 							class="form_input"/> </br>
 					</td>
 					<td id="firstNameError" class="error_Id">*</td>
-					</tr>
+				</tr>
 				<tr>
 					<td class="td_text_right">
 						<label>Last Name</label>
@@ -46,7 +72,7 @@
 					</td>
 					<td>
 						<input type="text" class="form_input" name="dateOfBirth" id="dateOfBirthId" 
-							placeholder="Date Of Birth" onfocusout="dob_func()" />
+							placeholder="01/01/2000" onfocusout="dob_func()" />
 					</td>
 					<td id="dateOfBithError" class="error_Id">*</td>
 				</tr>
@@ -86,8 +112,7 @@
 				</td>
 				<td class="td_text">
 					<input type="radio" name="maritalStatus" id="marriedId" value="Married">Married	
-					<input type="radio" name="maritalStatus" id="singleId" value="Single">Single
-					<input type="radio" name="maritalStatus" id="anyotherId" value="anyother">Any Other
+					<input type="radio" name="maritalStatus" id="singleId" value="Unmarried">Unmarried
 				</td>
 				<td id="maritalStatusError" class="error_Id">*</td>
 			</tr>
@@ -104,7 +129,7 @@
 			<tr>
 				<td></td>
 				<td>
-					<input type="text" class="form_input" name="address" id="stateidId" 
+					<input type="text" class="form_input" name="state" id="stateidId" 
 						placeholder="State" onfocusout="state_func()"></br>
 				</td>
 				<td id="stateError" class="error_Id">*</td>
@@ -112,7 +137,7 @@
 			<tr>
 				<td></td>
 				<td>
-					<input type="text" class="form_input"  name="address" id="pinCodeId" 
+					<input type="text" class="form_input"  name="pinCode" id="pinCodeId" 
 						placeholder="Pin Code" onfocusout="pinCode_func()"></br>
 				</td>
 				<td id="pinCodeError" class="error_Id">*</td>
@@ -150,7 +175,7 @@
 			<tr>
 				<td></td>
 				<td>
-					<input type="text" class="form_input" name="Emergencydata" id="relationshipId" 
+					<input type="text" class="form_input" name="relationship" id="relationshipId" 
 					placeholder="Relatonship" onfocusout="emergencyRelationship_func()"></br>
 				</td>
 				<td id="relationError" class="error_Id">*</td>
@@ -158,15 +183,15 @@
 			<tr>
 				<td></td>
 				<td>
-					<input type="text" class="form_input"  name="Emergencydata" id="emergency_contactno_Id" 
+					<input type="text" class="form_input"  name="contactNo" id="emergency_contactno_Id" 
 						placeholder="Contact No" onfocusout="emergency_contactno_func()"></br>
 				</td>
 				<td id="emergency_contactno_error" class="error_Id">*</td>
 			</tr>
 			<tr>
 				<td id="btn_Id" colspan="2">
-				<input id="resetId" type="submit" value="Next" name="submit" onclick="return validateForm()">
-			</td>
+				<input id="resetId" type="submit" value="Next" name="submitFirstForm" onclick="return validateForm()">
+			</td> 
 			</tr>
 			</table>
 		</form>

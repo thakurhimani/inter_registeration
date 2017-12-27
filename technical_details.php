@@ -1,8 +1,26 @@
+<?php
+	session_start();
+	if(isset($_POST['submit_third'])){
+		$_SESSION['third_forminfo'] = array();
+		$intersetArea = $_POST['intersetArea'];
+		$Language = $_POST['Language'];
+		$CMSKnowledge = $_POST['CMSKnowledge'];
+		$srNO = $_POST['srNO'];
+		$projectName = $_POST['projectName'];
+		$technology = $_POST['technology'];
+		$message = $_POST['message'];
+		array_push($_SESSION['third_forminfo'],$intersetArea,$Language,$CMSKnowledge,$srNO,$projectName,
+		$technology,$message);
+		
+		header("Location:email_form.php");
+	}
+	
+?>
 <html>
 	<title>Technical Details</title>
 	<head>
 		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
-		<script src="technical_details_js.js"></script>
+		<script src="js_personal_form.js"></script>
 	</head>                                      
 	<body>
 		<form id="technical_form_id" method="POST" action="">
@@ -93,30 +111,30 @@
 								</tr>
 								<tr>
 									<td >
-										<input type="text" name="srNO" class="project_input" >
+										<input type="text" name="srNO_1" class="project_input" >
 									</td>
 									<td>
-										<input type="text" name="projectName" class="project_input" >
+										<input type="text" name="projectName_1" class="project_input" >
 									</td>
 									<td>
-										<input type="text" name="technology" class="project_input" >
+										<input type="text" name="technology_1" class="project_input" >
 									</td>
 									<td>
-										<textarea rows="4" cols="50" name="message" id="textarea"  class="project_input" ></textarea>
+										<textarea rows="4" cols="50" name="message_1" id="textarea"  class="project_input" ></textarea>
 									</td>
 								</tr>
 								<tr>
 									<td >
-										<input type="text" name="srNO" class="project_input" >
+										<input type="text" name="srNO_2" class="project_input" >
 									</td>
 									<td>
-										<input type="text" name="projectName" class="project_input" >
+										<input type="text" name="projectName_2" class="project_input" >
 									</td>
 									<td>
-										<input type="text" name="technology" class="project_input" >
+										<input type="text" name="technology_2" class="project_input" >
 									</td>
 									<td>
-										<textarea rows="4" cols="50" name="message" id="textarea"  class="project_input"  ></textarea>
+										<textarea rows="4" cols="50" name="message_2" id="textarea"  class="project_input"  ></textarea>
 									</td>
 								</tr>
 							</table>
@@ -124,10 +142,11 @@
 					<table id="submitbtn">
 						<tr>
 							<td>
-								<input id="submitId" type="submit" value="Submit" name="submit" onclick="return validateForm()">
+								<input id="submitId" type="submit" value="Submit" name="submit_third" onclick="return validate_third_Form()">
 							</td>
 						</tr>
 					</table>
 		</form>
 	</body>
 </html>
+
