@@ -2,7 +2,32 @@
 session_start();
 	if(isset($_POST['submitFirstForm'])){
 		$_SESSION['forminfo'] = array();
-		$profileImage=$_POST['profileImage'];
+		$profileImage= $_FILES["file"]["image"];
+		$file_basename = substr($filename, 0, strripos($filename, '.')); 
+		$file_ext = substr($filename, strripos($filename, '.'));
+		$filesize = $_FILES["file"]["size"];
+		$allowed_file_types = array('.doc','.docx','.rtf','.pdf','.jpg','.jpeg');	
+		if (in_array($file_ext,$allowed_file_types) && ($filesize < 200000)){
+			$newfilename = md5($_POST['emailId']). $file_ext;
+			if (file_exists("upload/" . $profileImage)){
+					echo "You have already uploaded this file.";
+			}else{		
+				move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $newfilename);
+				echo "File uploaded successfully.";
+				echo 	"upload/" .$newfilename;
+				echo "<img src=" ."upload/" .$newfilename." />";
+			}
+		}elseif (empty( $_POST['emailId'])){	
+				echo "Please select a file to upload.";
+			} elseif ($filesize > 200000){	
+				echo "The file you are trying to upload is too large.";
+			}else{
+				echo "Only these file typs are allowed for upload: " . implode(', ',$allowed_file_types);
+				unlink($_FILES["file"]["tmp_name"]);
+			}
+
+
+
 		$firstName= $_POST['firstName'];
 		$lastName= $_POST['lastName'];		
 		$dateOfBirth=$_POST['dateOfBirth'];

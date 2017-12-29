@@ -20,7 +20,7 @@
 	<title>Technical Details</title>
 	<head>
 		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
-		<script src="js_personal_form.js"></script>
+		 <script src="js_personal_form.js"></script>
 	</head>                                      
 	<body>
 		<form id="technical_form_id" method="POST" action="">
@@ -36,8 +36,8 @@
 									id="theming_id">Theming	</br>	
 									<input type="checkbox" name="intersetArea[]" value="networking" 
 									id="networking_id">Networking
-									<input type="checkbox" name="intersetArea[]" value="networking"
-									id="system_id">system
+									<input type="checkbox" name="intersetArea[]" value="systemAdministrator"
+									id="system_id">System Administrator
 								</td>
 								<td id="error_intersetArea" class="formError">*</td>
 							</tr>

@@ -64,33 +64,33 @@ if(isset($_POST['submit_second'])){
 									<input type="text" name="srNoField" id="srNo_Field" class="project_work" onfocusout="srNo()">
 								</td>
 								<td>
-									<input type="text" name="nameOfDegree" id="nameOFDegree" class="project_work" onfocusout="nameOFDegree()">
+									<input type="text" name="nameOfDegree" id="nameOFDegree" class="project_work" onfocusout="nameOfdegree()">
 								</td>
 								<td>
 									<input type="text" name="yearOfPassing" id="yearOfPasing" class="project_work" onfocusout="yearofpassing()">
 								</td>
 								<td>
-									<input type="text" name="University" id="university" class="project_work">
+									<input type="text" name="University" id="university" class="project_work" onfocusout="university_function()" >
 								</td>
 								<td>
-									<input type="text" name="Percentage" id="percentage" class="project_work">
+									<input type="text" name="Percentage" id="percentage" class="project_work" onfocusout= "percentage_function()">
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<input type="text" name="srNoField_2" id ="srNoField_2" class="project_work">
+									<input type="text" name="srNoField_2" id ="srNoField_2" class="project_work" onfocusout= "srNoField_2_fuction()">
 								</td>
 								<td>
-									<input type="text" name="nameOfDegree_2" id="nameOfDegree_2" class="project_work">
+									<input type="text" name="nameOfDegree_2" id="nameOfDegree_2" class="project_work" onfocusout= "nameOfDegree_2_function()" >
 								</td>
 								<td>
-									<input type="text" name="yearOfPassing_2" id="yearOfPassing_2" class="project_work">
+									<input type="text" name="yearOfPassing_2" id="yearOfPassing_2" class="project_work" onfocusout= "yearOfPassing_2_function()">
 								</td>
 								<td>
-									<input type="text" name="University_2" id="University_2" class="project_work">
+									<input type="text" name="University_2" id="University_2" class="project_work" onfocusout="University_2_function()" >
 								</td>
 								<td>
-									<input type="text" name="Percentage_2" id="Percentage_2" class="project_work">
+									<input type="text" name="Percentage_2" id="Percentage_2" class="project_work" onfocusout="percentage_2_function()">
 								</td>
 							</tr>
 							<tr>
@@ -148,9 +148,18 @@ if(isset($_POST['submit_second'])){
 				</fieldset>
 				<table>
 					<tr>
-						<td id="error_srno">*</td>
-						<td id="error_nameOfDegree">*</td>
-						<td id="error_yearofpassing">*</td>
+						<td id="error_srno" class="error_Id">*</td>
+						<td id="error_nameOfDegree" class="error_Id">*</td>
+						<td id="error_yearofpassing" class="error_Id">*</td>
+						<td id="error_university" class="error_Id">*</td>
+						<td id="error_percentage" class="error_Id">*</td>
+					</tr>
+					<tr>
+						<td id="error_srNoField_2" class="error_Id">*</td>
+						<td id="error_nameOfDegree_2" class="error_Id">*</td>
+						<td id="error_yearofpassing_2" class="error_Id">*</td>
+						<td id="error_university_2" class="error_Id">*</td>
+						<td id="error_percentage_2" class="error_Id">*</td>
 					</tr>
 				</table>
 				<fieldset class="fieldSetId">
@@ -175,19 +184,19 @@ if(isset($_POST['submit_second'])){
 							</tr>
 							<tr>
 								<td>
-									<input type="text" name="SrNo" id="SrNo" class="project_work">
+									<input type="text" name="SrNo" id="other_SrNo" class="project_work" onfocusout="other_SrNo_function()">
 								</td>
 								<td>
-									<input type="text" name="Certification" id="Certification" class="project_work">
+									<input type="text" name="Certification" id="other_Certification" class="project_work" onfocusout="other_Certification_function()">
 								</td>
 								<td>
-									<input type="text" name="Passing" id="Passing" class="project_work">
+									<input type="text" name="Passing" id="other_Passing" class="project_work" onfocusout = "other_Passing_function()">
 								</td>
 								<td>
-									<input type="text" name="Duration" id="Duration" class="project_work">
+									<input type="text" name="Duration" id="other_Duration" class="project_work" onfocusout ="other_Duration_function() ">
 								</td>
 								<td>
-									<input type="text" name="college" id="college" class="project_work">
+									<input type="text" name="college" id="other_college" class="project_work" onfocusout="other_college_function()">
 								</td>
 							</tr>
 							<tr>
@@ -259,11 +268,20 @@ if(isset($_POST['submit_second'])){
 								</td>
 							</tr>
 						</table>
+						<table>
+							<tr>
+								<td id="error_other_sr_no" class="error_Id">*</td>
+								<td id="error_other_Certification" class="error_Id">*</td>
+								<td id="error_other_Passing" class="error_Id">*</td>
+								<td id="error_other_Duration" class="error_Id" >*</td>
+								<td id="error_other_college"  class="error_Id" >*</td>
+							</tr>
+						</table>
 			</fieldset>
 						<table id="submitbtn_id">
 							<tr>
 								<td>
-									<input id="submitId" type="submit" value="Next" name="submit_second">
+									<input id="submitId" type="submit" value="Next" name="submit_second" onclick =" return validateSecondForm()">
 								</td>
 							</tr>
 						</table>		

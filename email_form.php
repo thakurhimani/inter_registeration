@@ -1,6 +1,6 @@
 <?php 
 session_start();
-	$profileimage = $_SESSION['forminfo'][0];
+	$newfilename = $_SESSION['forminfo'][0];
 	$firstname =  $_SESSION['forminfo'][1];
 	$lastname =  $_SESSION['forminfo'][2];
 	$dateofbirth =  $_SESSION['forminfo'][3];
@@ -51,8 +51,8 @@ session_start();
 	$projectName = $_SESSION['third_forminfo'][4];
 	$technology = $_SESSION['third_forminfo'][5];
 	$roleInProject = $_SESSION['third_forminfo'][6];
-	$email_to = '';
-	$email_subject = 'Intern resisgration';
+ 
+	
 	$email_body = '
 	<html>
 		<title>Intern resisgration</title>
@@ -70,7 +70,7 @@ session_start();
 		     			<tr>
 							<td></td>
 							<td>
-								<img src = "'.$profileimage.'"  alt="your image" width="180" height="180" style= "margin-left:56%" />
+								<img src = "'.$newfilename .'"  alt="your image" width="180" height="180" style= "margin-left:56%" />
 							</td>
 						</tr>
 		     			<tr>
@@ -115,11 +115,11 @@ session_start();
 						</tr>
 						<tr>
 							<td  class="td_text_right">
-								<label>Gender</label>
+								<label>Gender</label
 							</td>
-							<td class="td_text">
-								<input type="radio" name="gender" id="maleid" value="'.$gender.'" disabled  > Male	
-								<input type="radio" name="gender" id="femaleid" value="'. $gender .'" disabled  >Female
+							<td class="td_text" id="radioId">
+								<input type="radio" name="gender" id="maleid" value="Male"  disabled /> Male	
+								<input type="radio" name="gender" id="femaleid" value="Female" disabled />Female
 							</td>
 						</tr>
 						<tr>
@@ -127,8 +127,8 @@ session_start();
 								<label>Marital Status</label>
 							</td>
 							<td class="td_text">
-								<input type="radio" name="maritalStatus" id="marriedId" value="'.$maritalstatus.'" disabled>Married	
-								<input type="radio" name="maritalStatus" id="singleId" value="'. $maritalstatus.'" disabled>Unmarried
+								<input type="radio" name="maritalStatus" id="marriedId" value="Married" disabled>Married	
+								<input type="radio" name="maritalStatus" id="singleId" value="Unmarried" disabled>Unmarried
 							</td>
 						</tr>
 						<tr>
@@ -311,13 +311,13 @@ session_start();
 						<table class="technical_table_id">
 							<tr>
 								<td>
-									<input type="checkbox" name="intersetArea[]" value="deve"
+									<input type="checkbox" name="intersetArea[]" value="development"
 									id="development_id" disabled >Development
-									<input type="checkbox" name="intersetArea[]" value="" 
+									<input type="checkbox" name="intersetArea[]" value="theming" 
 									id="theming_id" disabled>Theming	</br>	
-									<input type="checkbox" name="intersetArea[]" value="" 
+									<input type="checkbox" name="intersetArea[]" value="networking" 
 									id="networking_id" disabled>Networking
-									<input type="checkbox" name="intersetArea[]" value=""
+									<input type="checkbox" name="intersetArea[]" value="systemAdministrator"
 									id="system_id" disabled>system
 								</td>
 							</tr>
@@ -328,15 +328,15 @@ session_start();
 							<table class="technical_table_id">
 								<tr>
 									<td>
-										<input type="checkbox" name="Language[]" value="" id="language_c_id" disabled>C
-										<input type="checkbox" name="Language[]" value="" 
+										<input type="checkbox" name="Language[]" value="C" id="language_c_id" disabled>C
+										<input type="checkbox" name="Language[]" value="C++" 
 											id="language_id" disabled>C++
-										<input type="checkbox" name="Language[]" value="" 
-											id"javascript_id" disabled>Javascript </br>
-										<input type="checkbox" name="Language[]" value="" id="php_id" disabled>php
-										<input type="checkbox" name="Language[]" value="" 
+										<input type="checkbox" name="Language[]" value="Javascript" 
+											id="javascript_id" disabled>Javascript </br>
+										<input type="checkbox" name="Language[]" value="php" id="php_id" disabled>php
+										<input type="checkbox" name="Language[]" value="HTML" 
 											id="html_id" disabled>HTML
-										<input type="checkbox" name="Language[]" value="" id="css_id" disabled>CSS
+										<input type="checkbox" name="Language[]" value="CSS" id="css_id" disabled>CSS
 										</td>
 								</tr>
 							</table>
@@ -346,11 +346,11 @@ session_start();
 							<table class="technical_table_id">
 								<tr>
 									<td>
-										<input type="checkbox" name="CMSKnowledge[]" value="<?php print_r($CMSKnowledgeValue);?>" 
+										<input type="checkbox" name="CMSKnowledge[]" value="Drupal" 
 										id="drupal_id" disabled>Drupal
-										<input type="checkbox" name="CMSKnowledge[]" value="<?php print_r($CMSKnowledgeValue);?>" 
+										<input type="checkbox" name="CMSKnowledge[]" value="Wordpress" 
 										id="wordpress_id" disabled>Wordpress </br>
-										<input type="checkbox" name="CMSKnowledge[]" value="<?php print_r($CMSKnowledgeValue);?>" id="none_id" disabled>None
+										<input type="checkbox" name="CMSKnowledge[]" value="None" id="none_id" disabled>None
 									</td>
 								</tr>
 							</table>
@@ -391,16 +391,93 @@ session_start();
 				</form>
 			</body>
 	</html>';
-	//print_r($email_body);die;
-		$mail_status = mail($email_to ,$email_subject,$email_body);
-/*	if($mail_status){
-		echo  'mail has been sent successfully.';
-		header('Location:personal_information_form.php)');
-	}else {
-		 echo 'Unable to send email.';
-		 header('Location:personal_information_form.php)');
-	}
-*/
-?> 
+	print_r($email_body);
+?>
 
-	
+<html>
+	<head>
+		<script type="text/javascript" src="jquery-3.2.1.js"></script>
+	</head>
+	<body>
+		<?php if($gender == "Female"){
+				echo '<script type="text/javascript">
+							$("#femaleid").attr("checked", true);
+						</script>';
+			}else if($gender == "Male"){
+				echo '<script type="text/javascript">
+							$("#maleid").attr("checked", true);
+						</script>';
+			}
+
+			if($maritalstatus == "Married") {
+				echo '<script type="text/javascript">
+							$("#marriedId").attr("checked", true);
+						</script>';	
+			}else if($maritalstatus == "Unmarried") {
+				echo '<script type="text/javascript">
+							$("#singleId").attr("checked", true);
+						</script>';
+			}
+			if($value == "development"){
+				echo '<script type="text/javascript">
+							$("#development_id").attr("checked", true);
+						</script>';	
+			}else if($value == "theming") {
+				echo '<script type="text/javascript">
+							$("#theming_id").attr("checked", true);
+						</script>';
+			}else if($value == "networking") {
+				echo '<script type="text/javascript">
+							$("#networking_id").attr("checked", true);
+						</script>';
+			}else if($value == "systemAdministrator") {
+				echo '<script type="text/javascript">
+							$("#system_id").attr("checked", true);
+						</script>';
+			}
+			
+		foreach ($Language as $key => $languageValue) {
+			if($languageValue == "C"){
+				echo '<script type="text/javascript">
+							$("#language_c_id").attr("checked", true);
+						</script>';	
+			}else if($languageValue == "C++") {
+				echo '<script type="text/javascript">
+							$("#language_id").attr("checked", true);
+						</script>';
+			}else if($languageValue == "Javascript") {
+				echo '<script type="text/javascript">
+							$("#javascript_id").attr("checked", true);
+						</script>';
+			}else if($languageValue == "php") {
+				echo '<script type="text/javascript">
+							$("#php_id").attr("checked", true);
+						</script>';
+			}else if($languageValue == "HTML") {
+				echo '<script type="text/javascript">
+							$("#html_id").attr("checked", true);
+						</script>';
+			}else if($languageValue == "CSS") {
+				echo '<script type="text/javascript">
+							$("#css_id").attr("checked", true);
+						</script>';
+			}
+		}
+
+			 if($CMSKnowledgeValue == "Drupal") {
+				echo '<script type="text/javascript">
+							$("#drupal_id").attr("checked", true);
+						</script>';
+			}else if($CMSKnowledgeValue == "Wordpress") {
+				echo '<script type="text/javascript">
+							$("#wordpress_id").attr("checked", true);
+						</script>';
+			}else if($CMSKnowledgeValue == "None") {
+				echo '<script type="text/javascript">
+							$("#none_id").attr("checked", true);
+						</script>';
+			}
+		?>	
+	</body>
+</html>
+

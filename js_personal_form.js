@@ -310,6 +310,8 @@ function validateForm() {
 	}
 		
 }
+
+// Third form validation
 function validate_third_Form(){
 //interst area validation
 	var check= document.getElementsByName('intersetArea[]');
@@ -355,20 +357,22 @@ function validate_third_Form(){
 	}
 }
 
+// Second form validation
 function srNo() {
 	var srNoField = document.getElementById('srNo_Field').value;
-	if(!/^[0-9]+$/..test(srNoField)){
+	if(!/^[0-9]+$/.test(srNoField)) {
 		document .getElementById('error_srno').innerHTML = "Please enter digit no ";
 		return false;
 	}else{
 		document.getElementById('error_srno').innerHTML = "";
+		return true;
 	}
 }
  
- function nameofdegree() {
+ function nameOfdegree() {
  	var nameofdegree = document.getElementById('nameOFDegree').value;
- 	if(!/^[a-zA-Z]+$/.test(nameofdegree)){
- 		document.getElementById('error_nameOfDegree').innerHTML = "Please enter the value of degree ";
+ 	if(!/^[a-zA-Z]+$/.test(nameofdegree)) {
+ 		document.getElementById('error_nameOfDegree').innerHTML = "Please enter the value of degree in characters ";
  		return false;
  	}else{
  		document.getElementById('error_nameOfDegree').innerHTML = "";
@@ -378,11 +382,194 @@ function srNo() {
 
  function yearofpassing() {
  	var yearofpassing = document.getElementById('yearOfPasing').value;
- 	if(!/^[0-9]+$/.test(yearofpassing)){
- 		document.getElementById('error_yearofpassing').innerHTML = "Please enter the value of year of pasing";
+ 	if(!/^[0-9]+$/.test(yearofpassing)) {
+ 		document.getElementById('error_yearofpassing').innerHTML = "Please enter the value of yearofpasing in digit no";
  		return false;
  	}else{
  		document.getElementById('error_yearofpassing').innerHTML = "";
  		return true;
  	}
  }
+
+ function university_function(){
+ 	var university = document.getElementById("university").value;
+ 	if(!/^[a-zA-Z]+$/.test(university)) {
+ 		document.getElementById('error_university').innerHTML = "Please enter the value of university in characters ";
+ 		return false;
+ 	}else{
+ 		document.getElementById("error_university").innerHTML = "";
+ 		return true;
+ 	}
+ }
+
+ function percentage_function(){
+ 	var percentage = document.getElementById('percentage').value;
+ 	if(!/^[0-9]+$/.test(percentage)) {
+ 		document.getElementById('error_percentage').innerHTML = "Please enter the value of percentage in digit no ";
+ 		return false;
+ 	}else{
+ 		document.getElementById('error_percentage').innerHTML = "";
+ 		return true;
+ 	}
+ }
+
+ function srNoField_2_fuction(){
+ 	var srNoField_2 = document.getElementById('srNoField_2').value;
+ 	if(!/^[0-9]+$/.test(srNoField_2)) {
+ 		document.getElementById('error_srNoField_2').innerHTML = "Please enter the value of srNoField in digit no";
+ 		return false;
+ 	}else{
+ 		document.getElementById('error_srNoField_2').innerHTML = "";
+ 		return true;
+ 	}
+ }
+
+function nameOfDegree_2_function(){
+	var nameOfDegree_2 = document.getElementById('nameOfDegree_2').value;
+	if(!/^[a-zA-Z]+$/.test(nameOfDegree_2)) {
+		document.getElementById('error_nameOfDegree_2').innerHTML = "Please enter the value of nameOfDegree in characters";
+		return false;
+	}else{
+		document.getElementById('error_nameOfDegree_2').innerHTML = "";
+		return true;
+	}
+}
+
+function yearOfPassing_2_function() {
+	var yearOfPassing_2 = document.getElementById('yearOfPassing_2').value;
+	if(!/^[0-9]+$/.test(yearOfPassing_2)) {
+		document.getElementById('error_yearofpassing_2').innerHTML = "Please enter the value of pssing year in digit no";
+		return false;		
+	}else{
+		document.getElementById('error_yearofpassing_2').innerHTML = "";
+		return true;
+	}
+}
+
+function University_2_function() {
+	var University_2 = document.getElementById('University_2').value;
+	if(!/^[a-zA-Z]+$/.test(University_2)) {
+		document.getElementById('error_university_2').innerHTML = "Please enter the value of university in characters";
+		return false;
+	}else{
+		document.getElementById('error_university_2').innerHTML = "";
+		return true;
+	}
+}
+
+function percentage_2_function() {
+	var percentage_2 = document.getElementById('Percentage_2').value;
+	if(!/^[0-9]+$/.test(percentage_2)) {
+		document.getElementById('error_percentage_2').innerHTML = "Please enter the value of percentage in digit no ";
+		return false;
+	}else{
+		document.getElementById('error_percentage_2').innerHTML = "";
+		return true;
+	}
+}
+
+//other Certification validation
+function other_SrNo_function() {
+	var other_sr_no = document.getElementById('other_SrNo').value;
+	if(!/^[0-9]+$/.test(other_sr_no)) {
+		document.getElementById('error_other_sr_no').innerHTML = "Please enter the value of srno in digit"
+		return false;
+	}else{
+		document.getElementById('error_other_sr_no').innerHTML ="";
+		return true;
+	}
+}
+
+function other_Certification_function() {
+	var other_Certification = document.getElementById('other_Certification').value;
+	if(!/^[a-zA-Z]+$/.test(other_Certification)) {
+		document.getElementById('error_other_Certification').innerHTML = "Please enter the value of Certificate in characters";
+		return false;
+	}else{
+		document.getElementById('error_other_Certification').innerHTML = "";
+		return true;
+	}
+}
+
+function other_Passing_function() {
+	var other_Passing = document.getElementById('other_Passing').value;
+	if(!/^[0-9]+$/.test(other_Passing)) {
+		document.getElementById('error_other_Passing').innerHTML = "Please enter the value of passing in digit no ";
+		return false;
+	}else{
+		document.getElementById('error_other_Passing').innerHTML ="";
+		return true;
+	}
+}
+
+function other_Duration_function() {
+	var  other_Duration = document.getElementById('other_Duration').value;
+	if(!/^[0-9]+$/.test( other_Duration)) {
+		document.getElementById('error_other_Duration').innerHTML = "Please enter the value of duration in digit no ";
+		return false;
+	}else{
+		document.getElementById('error_other_Duration').innerHTML ="";
+		return true;
+	}
+}
+
+function other_college_function() {
+	var other_college = document.getElementById('other_college').value;
+	if(!/^[a-zA-Z]+$/.test(other_college)) {
+		document.getElementById('error_other_college').innerHTML = "Please enter the value of college in characters";
+		return false;
+	}else{
+		document.getElementById('error_other_college').innerHTML = "";
+		return true;
+	}
+}
+
+
+function validateSecondForm(){
+	//sr no1 validation
+	var srNoField = document.getElementById('srNo_Field').value;
+	if(srNoField=="") {
+		document .getElementById('error_srno').innerHTML = "Please enter the value of sr.no. ";
+	}else{
+		document.getElementById('error_srno').innerHTML = "";
+	}
+
+	//name of degree1 validation
+	var nameofdegree = document.getElementById('nameOFDegree').value;
+ 	if(nameofdegree=="") {
+ 		document.getElementById('error_nameOfDegree').innerHTML = "Please enter the value of degree";
+ 	}else{
+ 		document.getElementById('error_nameOfDegree').innerHTML = "";
+ 	}
+
+ 	// passing year1 validation
+ 	var yearofpassing = document.getElementById('yearOfPasing').value;
+ 	if(yearofpassing=="") {
+ 		document.getElementById('error_yearofpassing').innerHTML = "Please enter the value of yearofpasing ";
+ 	}else{
+ 		document.getElementById('error_yearofpassing').innerHTML = "";
+ 	}
+
+ 	//university validation
+ 	var university = document.getElementById("university").value;
+ 	if(university=="") {
+ 		document.getElementById('error_university').innerHTML = "Please enter the value of university in characters ";
+ 	}else{
+ 		document.getElementById("error_university").innerHTML = "";
+ 	}
+//percentage validation
+ 	var percentage = document.getElementById('percentage').value;
+ 	if(percentage=="") {
+ 		document.getElementById('error_percentage').innerHTML = "Please enter the value of percentage ";
+ 	}else{
+ 		document.getElementById('error_percentage').innerHTML = "";
+ 	}
+
+ 	if(srNoField=="" ||nameofdegree=="" ||yearofpassing=="" ||university=="" ||percentage==""  ){
+			return false;	
+	}
+	else{
+		return true;
+	}
+
+}
