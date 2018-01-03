@@ -148,18 +148,18 @@ if(isset($_POST['submit_second'])){
 				</fieldset>
 				<table>
 					<tr>
-						<td id="error_srno" class="error_Id">*</td>
-						<td id="error_nameOfDegree" class="error_Id">*</td>
-						<td id="error_yearofpassing" class="error_Id">*</td>
-						<td id="error_university" class="error_Id">*</td>
-						<td id="error_percentage" class="error_Id">*</td>
+						<td id="error_srno" class="error_Id"></td>
+						<td id="error_nameOfDegree" class="error_Id"></td>
+						<td id="error_yearofpassing" class="error_Id"></td>
+						<td id="error_university" class="error_Id"></td>
+						<td id="error_percentage" class="error_Id"></td>
 					</tr>
 					<tr>
-						<td id="error_srNoField_2" class="error_Id">*</td>
-						<td id="error_nameOfDegree_2" class="error_Id">*</td>
-						<td id="error_yearofpassing_2" class="error_Id">*</td>
-						<td id="error_university_2" class="error_Id">*</td>
-						<td id="error_percentage_2" class="error_Id">*</td>
+						<td id="error_srNoField_2" class="error_Id"></td>
+						<td id="error_nameOfDegree_2" class="error_Id"></td>
+						<td id="error_yearofpassing_2" class="error_Id"></td>
+						<td id="error_university_2" class="error_Id"></td>
+						<td id="error_percentage_2" class="error_Id"></td>
 					</tr>
 				</table>
 				<fieldset class="fieldSetId">
@@ -270,11 +270,11 @@ if(isset($_POST['submit_second'])){
 						</table>
 						<table>
 							<tr>
-								<td id="error_other_sr_no" class="error_Id">*</td>
-								<td id="error_other_Certification" class="error_Id">*</td>
-								<td id="error_other_Passing" class="error_Id">*</td>
-								<td id="error_other_Duration" class="error_Id" >*</td>
-								<td id="error_other_college"  class="error_Id" >*</td>
+								<td id="error_other_sr_no" class="error_Id"></td>
+								<td id="error_other_Certification" class="error_Id"></td>
+								<td id="error_other_Passing" class="error_Id"></td>
+								<td id="error_other_Duration" class="error_Id"></td>
+								<td id="error_other_college"  class="error_Id"></td>
 							</tr>
 						</table>
 			</fieldset>

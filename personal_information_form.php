@@ -2,32 +2,9 @@
 session_start();
 	if(isset($_POST['submitFirstForm'])){
 		$_SESSION['forminfo'] = array();
-		$profileImage= $_FILES["file"]["image"];
-		$file_basename = substr($filename, 0, strripos($filename, '.')); 
-		$file_ext = substr($filename, strripos($filename, '.'));
-		$filesize = $_FILES["file"]["size"];
-		$allowed_file_types = array('.doc','.docx','.rtf','.pdf','.jpg','.jpeg');	
-		if (in_array($file_ext,$allowed_file_types) && ($filesize < 200000)){
-			$newfilename = md5($_POST['emailId']). $file_ext;
-			if (file_exists("upload/" . $profileImage)){
-					echo "You have already uploaded this file.";
-			}else{		
-				move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $newfilename);
-				echo "File uploaded successfully.";
-				echo 	"upload/" .$newfilename;
-				echo "<img src=" ."upload/" .$newfilename." />";
-			}
-		}elseif (empty( $_POST['emailId'])){	
-				echo "Please select a file to upload.";
-			} elseif ($filesize > 200000){	
-				echo "The file you are trying to upload is too large.";
-			}else{
-				echo "Only these file typs are allowed for upload: " . implode(', ',$allowed_file_types);
-				unlink($_FILES["file"]["tmp_name"]);
-			}
-
-
-
+		$oldpath = $_FILES['image_path']['tmp_name'];
+		$newfilename ="upload/".$_FILES['image_path']['name'];
+		move_uploaded_file($oldpath, $newfilename);
 		$firstName= $_POST['firstName'];
 		$lastName= $_POST['lastName'];		
 		$dateOfBirth=$_POST['dateOfBirth'];
@@ -43,7 +20,7 @@ session_start();
 		$Emergencydata=$_POST['Emergencydata'];	
 		$relationship=$_POST['relationship'];	 
 		$contactNo=$_POST['contactNo'];
-		array_push($_SESSION['forminfo'],$profileImage,$firstName,$lastName,$dateOfBirth,$fatherName,$motherName,
+		array_push($_SESSION['forminfo'],$newfilename,$firstName,$lastName,$dateOfBirth,$fatherName,$motherName,
 			$gender,$maritalStatus,$address,$state,$pinCode,$contactno,$emailId,$Emergencydata,$relationship,$contactNo);
 	
 		header("Location:academic_details_form.php");
@@ -56,7 +33,7 @@ session_start();
 		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css" />
 	</head>                                      
 	<body>
-		<form id="multiple_page_form" action="" method="POST" >
+		<form id="multiple_page_form" action="" method="POST"  enctype="multipart/form-data" >
 			<table id="tableid">
 				<tr>
 					<th colspan="3">
@@ -66,7 +43,7 @@ session_start();
 				<tr>
 					<td></td>
 					<td>
-						<input type='file' id="fileId" name="profileImage" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" accept="image/*" />
+						<input type='file' id="fileId" name="image_path" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])" accept="image/*" />
 						<img id="output" name="image" src="http://placehold.it/180" alt="your image" width="180" height="180" />
 					</td>
 					<td id="fileError" class="error_Id">*</td>

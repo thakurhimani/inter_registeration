@@ -70,7 +70,7 @@ session_start();
 		     			<tr>
 							<td></td>
 							<td>
-								<img src = "'.$newfilename .'"  alt="your image" width="180" height="180" style= "margin-left:56%" />
+								<img src = "'. $newfilename.'"  alt="your image" width="180" height="180" style= "margin-left:56%" />
 							</td>
 						</tr>
 		     			<tr>
