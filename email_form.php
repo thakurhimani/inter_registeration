@@ -391,7 +391,16 @@ session_start();
 				</form>
 			</body>
 	</html>';
-	print_r($email_body);
+	
+	$to = "himanithakur815@gmail.com";
+	$from = "rajender.r@gai.co.in";
+	$subject = "Intern Registration forms";
+
+	if (mail($to, $subject, $email_body)) {
+	 echo("<p>Email successfully sent!</p>");
+	 } else {
+	 echo("<p>Email delivery failed…</p>");
+	 }
 ?>
 
 <html>
